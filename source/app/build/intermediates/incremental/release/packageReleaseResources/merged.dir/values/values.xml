@@ -3,13 +3,17 @@
     <bool name="enableNotification">true</bool>
     <bool name="enableSiteSettingsShortcut">true</bool>
     <color name="backgroundColor">#121212</color>
+    <color name="colorAccent">#121212</color>
     <color name="colorPrimary">#121212</color>
     <color name="colorPrimaryDark">#121212</color>
+    <color name="navigationBarColor">@android:color/transparent</color>
     <color name="navigationColor">#121212</color>
     <color name="navigationColorDark">#121212</color>
     <color name="navigationDividerColor">#121212</color>
     <color name="navigationDividerColorDark">#121212</color>
     <color name="shortcut_background">#F5F5F5</color>
+    <color name="statusBarColor">@android:color/transparent</color>
+    <color name="surfaceColor">#121212</color>
     <integer name="splashScreenFadeOutDuration">300</integer>
     <string name="appName" translatable="false">Mr. IBU</string>
     <string name="assetStatements">
@@ -37,4 +41,53 @@
     <string name="shortcut_short_name_1" translatable="false">Chat</string>
     <string name="shortcut_short_name_2" translatable="false">Dashboard</string>
     <string name="webManifestUrl" translatable="false">https://local-genius-guide.vercel.app/manifest.json</string>
+    <style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
+        
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        
+        
+        <item name="android:windowTranslucentStatus">false</item>
+        <item name="android:windowTranslucentNavigation">false</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:enforceStatusBarContrast">false</item>
+        <item name="android:enforceNavigationBarContrast">false</item>
+        
+        
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:fitsSystemWindows">false</item>
+        
+        
+        <item name="android:hardwareAccelerated">true</item>
+        
+        
+        <item name="android:resizeableActivity">true</item>
+        <item name="android:supportsPictureInPicture">false</item>
+    </style>
+    <style name="AppTheme.EdgeToEdge" parent="AppTheme">
+        
+    
+        <item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>
+        
+        
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">false</item>
+    </style>
+    <style name="AppTheme.LargeScreen" parent="AppTheme.EdgeToEdge">
+        
+        <item name="android:windowMinWidthMajor">75%</item>
+        <item name="android:windowMinWidthMinor">50%</item>
+        
+        
+        <item name="android:resizeableActivity">true</item>
+        <item name="android:supportsPictureInPicture">false</item>
+        
+        
+        <item name="android:windowSoftInputMode">adjustResize</item>
+    </style>
 </resources>

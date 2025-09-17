@@ -1,4 +1,4 @@
-#Wed Sep 17 03:54:42 PDT 2025
-base.0=/tmp/pwabuilder-cloudapk--18-xkKCM6qufM5c/app/build/intermediates/dex/release/minifyReleaseWithR8/classes.dex
+#Wed Sep 17 14:11:19 UTC 2025
+base.0=/workspaces/ibu-app/source/app/build/intermediates/dex/release/minifyReleaseWithR8/classes.dex
 renamed.0=classes.dex
 path.0=classes.dex

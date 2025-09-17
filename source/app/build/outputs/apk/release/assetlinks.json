@@ -1,8 +1,0 @@
-[{
-      "relation": ["delegate_permission/common.handle_all_urls"],
-      "target": {
-        "namespace": "android_app",
-        "package_name": "app.vercel.local_genius_guide.twa",
-        "sha256_cert_fingerprints": ["54:F2:42:9A:79:80:D1:AB:2B:F2:86:43:96:92:51:01:F8:25:FD:99:F0:F9:47:2F:F2:8C:FB:97:F1:9A:12:55"]
-      }
-    }]

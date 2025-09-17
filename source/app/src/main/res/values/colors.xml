@@ -13,8 +13,8 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="shortcut_background">#F5F5F5</color>
     <!-- App color scheme matching your PWA theme -->
     <color name="colorPrimary">#121212</color>
     <color name="colorPrimaryDark">#121212</color>

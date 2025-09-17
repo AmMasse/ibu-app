@@ -31,7 +31,7 @@
     <!-- Theme for Android 15+ with enhanced edge-to-edge support -->
     <style name="AppTheme.EdgeToEdge" parent="AppTheme">
         <!-- Android 15+ specific enhancements -->
-        <item name="android:windowOptionalFitsSystemWindows">true</item>
+    <!-- <item name="android:windowOptionalFitsSystemWindows">true</item> -->
         <item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>
         
         <!-- Improved system bar handling -->

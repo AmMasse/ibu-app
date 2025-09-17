@@ -58,7 +58,7 @@
         android:label="@string/appName"
         android:manageSpaceActivity="com.google.androidbrowserhelper.trusted.ManageDataLauncherActivity"
         android:supportsRtl="true"
-        android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+        android:theme="@style/AppTheme.EdgeToEdge" >
         <meta-data
             android:name="asset_statements"
             android:resource="@string/assetStatements" />
@@ -77,8 +77,12 @@
         <activity
             android:name="app.vercel.local_genius_guide.twa.LauncherActivity"
             android:alwaysRetainTaskState="true"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|density"
             android:exported="true"
-            android:label="@string/launcherName" >
+            android:label="@string/launcherName"
+            android:resizeableActivity="true"
+            android:theme="@style/AppTheme.EdgeToEdge"
+            android:windowSoftInputMode="adjustResize" >
             <meta-data
                 android:name="android.support.customtabs.trusted.DEFAULT_URL"
                 android:value="@string/launchUrl" />
@@ -121,9 +125,6 @@
             <meta-data
                 android:name="android.support.customtabs.trusted.DISPLAY_MODE"
                 android:value="sticky-immersive" />
-            <meta-data
-                android:name="android.support.customtabs.trusted.SCREEN_ORIENTATION"
-                android:value="@string/orientation" />
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
