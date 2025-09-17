@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base application theme for edge-to-edge display -->
+    <style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <!-- Customize your theme here -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        
+        <!-- Enable edge-to-edge display -->
+        <item name="android:windowTranslucentStatus">false</item>
+        <item name="android:windowTranslucentNavigation">false</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:enforceStatusBarContrast">false</item>
+        <item name="android:enforceNavigationBarContrast">false</item>
+        
+        <!-- Remove window content overlay for clean edge-to-edge -->
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:fitsSystemWindows">false</item>
+        
+        <!-- Enable hardware acceleration for smooth performance -->
+        <item name="android:hardwareAccelerated">true</item>
+        
+        <!-- Support for foldables and large screens -->
+        <item name="android:resizeableActivity">true</item>
+        <item name="android:supportsPictureInPicture">false</item>
+    </style>
+
+    <!-- Theme for Android 15+ with enhanced edge-to-edge support -->
+    <style name="AppTheme.EdgeToEdge" parent="AppTheme">
+        <!-- Android 15+ specific enhancements -->
+        <item name="android:windowOptionalFitsSystemWindows">true</item>
+        <item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>
+        
+        <!-- Improved system bar handling -->
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">false</item>
+    </style>
+
+    <!-- Theme for tablets and foldables -->
+    <style name="AppTheme.LargeScreen" parent="AppTheme.EdgeToEdge">
+        <!-- Optimized for large screens and foldables -->
+        <item name="android:windowMinWidthMajor">75%</item>
+        <item name="android:windowMinWidthMinor">50%</item>
+        
+        <!-- Support multi-window mode -->
+        <item name="android:resizeableActivity">true</item>
+        <item name="android:supportsPictureInPicture">false</item>
+        
+        <!-- Enhanced layout for large screens -->
+        <item name="android:windowSoftInputMode">adjustResize</item>
+    </style>
+</resources>

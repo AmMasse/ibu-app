@@ -43,7 +43,7 @@
         android:manageSpaceActivity="com.google.androidbrowserhelper.trusted.ManageDataLauncherActivity"
         
         android:supportsRtl="true"
-        android:theme="@android:style/Theme.Translucent.NoTitleBar">
+        android:theme="@style/AppTheme.EdgeToEdge">
 
         <meta-data
             android:name="asset_statements"
@@ -74,7 +74,12 @@
         <activity android:name="LauncherActivity"
             android:alwaysRetainTaskState="true"
             android:label="@string/launcherName"
-            android:exported="true">
+            android:exported="true"
+            android:resizeableActivity="true"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|density"
+            android:windowSoftInputMode="adjustResize"
+            android:theme="@style/AppTheme.EdgeToEdge">
+
             <meta-data android:name="android.support.customtabs.trusted.DEFAULT_URL"
                 android:value="@string/launchUrl" />
 
@@ -126,10 +131,7 @@
             
             <meta-data android:name="android.support.customtabs.trusted.DISPLAY_MODE"
                 android:value="sticky-immersive" />
-            
-
-            <meta-data android:name="android.support.customtabs.trusted.SCREEN_ORIENTATION"
-                android:value="@string/orientation"/>
+        
 
             
 
