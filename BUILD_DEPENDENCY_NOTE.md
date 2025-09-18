@@ -8,9 +8,38 @@
 - **Target SDK:** 35
 - **Compile SDK:** 36
 
+
 ## Build Dependencies
-- The file `source/cmdline-tools.zip` was removed from version control because it exceeds GitHub's 100 MB file size limit. This file is required for building the Android app and must be manually downloaded or restored before running builds.
-- **Action Required:** Download the Android SDK command line tools and place them at `source/cmdline-tools.zip` before building or updating the app.
+- **Android SDK:**
+	- Download and extract the Android SDK (command line tools, build-tools, platform-tools, platforms, licenses) to a known location (e.g., `/home/codespace/android-sdk`).
+	- Ensure the following subfolders exist inside your SDK directory:
+		- `cmdline-tools/`
+		- `build-tools/`
+		- `platform-tools/`
+		- `platforms/`
+		- `licenses/`
+	- You can use the `sdkmanager` tool to install missing components:
+		- Example: `sdkmanager "build-tools;36.0.0" "platforms;android-36" "platform-tools"`
+	- Accept all licenses: `yes | sdkmanager --licenses`
+
+- **local.properties:**
+	- The file `source/local.properties` must contain the absolute path to your Android SDK:
+		- Example: `sdk.dir=/home/codespace/android-sdk`
+	- Do NOT use environment variables like `$HOME` in this file; use the full path.
+
+- **Java Version:**
+	- Java 17 is required. Set `JAVA_HOME` to the Java 17 installation directory before building:
+		- Example: `export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64`
+		- Add to `PATH`: `export PATH=$JAVA_HOME/bin:$PATH`
+
+- **Other:**
+	- The file `source/cmdline-tools.zip` was removed from version control because it exceeds GitHub's 100 MB file size limit. If you need to re-bootstrap the SDK, download this file and extract it as needed.
+
+**Action Required Before Building:**
+1. Ensure the Android SDK is present and all required components are installed.
+2. Ensure `local.properties` points to the correct absolute SDK path.
+3. Ensure Java 17 is installed and `JAVA_HOME` is set.
+4. (Optional) Download and extract `cmdline-tools.zip` if re-initializing the SDK.
 
 ## Signing Information (for release builds)
 - **Keystore file:** `signing.keystore`

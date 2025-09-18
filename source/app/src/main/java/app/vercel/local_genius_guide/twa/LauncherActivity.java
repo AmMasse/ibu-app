@@ -81,9 +81,8 @@ public class LauncherActivity extends AppCompatActivity {
                 insetHelper.injectSafeAreaVariables(webView);
             }
         });
-        
-        // Load your PWA
-        webView.loadUrl(getString(R.string.launchUrl) + "?forceHideBadge=true");
+        // Load your PWA (production URL)
+        webView.loadUrl("https://local-genius-guide.vercel.app/");
     }
 
     private void setupWindowInsets() {
