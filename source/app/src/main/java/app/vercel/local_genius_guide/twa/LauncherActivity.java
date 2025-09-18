@@ -83,7 +83,7 @@ public class LauncherActivity extends AppCompatActivity {
         });
         
         // Load your PWA
-        webView.loadUrl("https://1d33d164-f4dc-4616-bb00-790b9869a384.lovableproject.com?forceHideBadge=true");
+        webView.loadUrl(getString(R.string.launchUrl) + "?forceHideBadge=true");
     }
 
     private void setupWindowInsets() {
