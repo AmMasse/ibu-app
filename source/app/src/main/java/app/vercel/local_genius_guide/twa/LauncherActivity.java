@@ -15,6 +15,7 @@
  */
 package app.vercel.local_genius_guide.twa;
 
+
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
@@ -25,7 +26,11 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.core.view.WindowInsetsControllerCompat;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
+import android.net.Uri;
+import android.content.Intent;
+import androidx.browser.customtabs.CustomTabsIntent;
 
 public class LauncherActivity extends AppCompatActivity {
     private WebView webView;
@@ -75,6 +80,16 @@ public class LauncherActivity extends AppCompatActivity {
         
         webView.setWebViewClient(new WebViewClient() {
             @Override
+            public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+                String url = request.getUrl().toString();
+                if (isGoogleOAuthUrl(url)) {
+                    launchInCustomTab(url);
+                    return true; // Don't load in WebView
+                }
+                return false; // Load in WebView
+            }
+
+            @Override
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
                 // Inject safe area CSS variables after page load
@@ -83,6 +98,18 @@ public class LauncherActivity extends AppCompatActivity {
         });
         // Load your PWA (production URL)
         webView.loadUrl("https://local-genius-guide.vercel.app/");
+    }
+
+    // Helper to detect Google OAuth URLs
+    private boolean isGoogleOAuthUrl(String url) {
+        return url != null && url.contains("accounts.google.com/o/oauth2/");
+    }
+
+    // Launch the URL in a Chrome Custom Tab
+    private void launchInCustomTab(String url) {
+        CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
+        CustomTabsIntent customTabsIntent = builder.build();
+        customTabsIntent.launchUrl(this, Uri.parse(url));
     }
 
     private void setupWindowInsets() {
