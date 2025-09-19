@@ -129,25 +129,23 @@ public class LauncherActivity extends AppCompatActivity {
     }
 
     private void configureSystemBars() {
-        // Modern approach for Android 15+ - replace deprecated SYSTEM_UI_FLAG_*
-        WindowInsetsControllerCompat windowInsetsController = 
-            ViewCompat.getWindowInsetsController(getWindow().getDecorView());
-        
-        if (windowInsetsController != null) {
-            // Configure transparent status bar and navigation bar
-            getWindow().setStatusBarColor(android.graphics.Color.TRANSPARENT);
-            getWindow().setNavigationBarColor(android.graphics.Color.TRANSPARENT);
-            
-            // Enable edge-to-edge content
-            getWindow().setFlags(
-                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
-                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
-            );
-            
-            // Set system bar appearance based on app theme
-            windowInsetsController.setAppearanceLightStatusBars(false);
-            windowInsetsController.setAppearanceLightNavigationBars(false);
+        // Use edge-to-edge with a single app color (#121212) for all system bars
+        final int appColor = android.graphics.Color.parseColor("#121212");
+        getWindow().setDecorFitsSystemWindows(false);
+        // For Android 11+ (API 30+), use WindowInsetsController for bar appearance
+        View decorView = getWindow().getDecorView();
+        WindowInsetsControllerCompat insetsController = ViewCompat.getWindowInsetsController(decorView);
+        if (insetsController != null) {
+            insetsController.setAppearanceLightStatusBars(false);
+            insetsController.setAppearanceLightNavigationBars(false);
         }
+        // Set background color for the root view to app color
+        View rootView = findViewById(R.id.root_container);
+        if (rootView != null) {
+            rootView.setBackgroundColor(appColor);
+        }
+        // Optionally, set the window background color as a fallback
+        getWindow().setBackgroundDrawable(new android.graphics.drawable.ColorDrawable(appColor));
     }
 
     @Override
