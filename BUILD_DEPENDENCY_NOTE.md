@@ -1,8 +1,8 @@
 # Build Dependency & Build Info Note
 
 ## App Version Information
-- **Version code:** 2
-- **Version name:** 1.1.0.0
+- **Version code:** 4
+- **Version name:** 1.1.0.1
 - **Application ID:** app.vercel.local_genius_guide.twa
 - **Minimum SDK:** 23
 - **Target SDK:** 35
