@@ -55,10 +55,10 @@ android {
     namespace "app.vercel.local_genius_guide.twa"
     defaultConfig {
         applicationId "app.vercel.local_genius_guide.twa"
-        minSdkVersion 23
-        targetSdkVersion 35
-    versionCode 5
-    versionName "1.2.0.1"
+        minSdkVersion 24
+        targetSdkVersion 36
+    versionCode 11
+    versionName "2.0.0.1"
 
         // The name for the application
         resValue "string", "appName", twaManifest.name
@@ -150,9 +150,25 @@ android {
 
         
     }
+    signingConfigs {
+        release {
+            def ksPath = findProperty("RELEASE_STORE_FILE") ?: System.getenv("KEYSTORE_PATH")
+            if (ksPath) {
+                storeFile file(ksPath)
+            } else if (file("signingKey.keystore").exists()) {
+                storeFile file("signingKey.keystore")
+            } else {
+                storeFile file("../signingKey.keystore")
+            }
+            storePassword findProperty("RELEASE_STORE_PASSWORD") ?: System.getenv("KEYSTORE_PASSWORD") ?: ""
+            keyAlias findProperty("RELEASE_KEY_ALIAS") ?: System.getenv("KEY_ALIAS") ?: "ibu-key"
+            keyPassword findProperty("RELEASE_KEY_PASSWORD") ?: System.getenv("KEY_PASSWORD") ?: ""
+        }
+    }
     buildTypes {
         release {
             minifyEnabled true
+            signingConfig signingConfigs.release
         }
     }
     compileOptions {

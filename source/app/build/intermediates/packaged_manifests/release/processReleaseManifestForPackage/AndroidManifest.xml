@@ -14,21 +14,15 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<!--
- The "package" attribute is rewritten by the Gradle build with the value of applicationId.
-     It is still required here, as it is used to derive paths, for instance when referring
-     to an Activity by ".MyActivity" instead of the full name. If more Activities are added to the
-     application, the package attribute will need to reflect the correct path in order to use
-     the abbreviated format.
--->
+<!-- The "package" attribute is now managed by Gradle. Do not set it manually. -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="app.vercel.local_genius_guide.twa"
-    android:versionCode="2"
-    android:versionName="1.1.0.0" >
+    android:versionCode="11"
+    android:versionName="2.0.0.1" >
 
     <uses-sdk
-        android:minSdkVersion="23"
-        android:targetSdkVersion="35" />
+        android:minSdkVersion="24"
+        android:targetSdkVersion="36" />
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
